@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import {toast} from 'react-hot-toast'
+import axios from 'axios'
 
 import api from '../lib/axios';
 import Navbar from '../components/Navbar';
@@ -17,7 +18,8 @@ const Home = () => {
     const fetchNotes = async () => {
         try {
             const res = await api.get("/notes");
-            console.log(res.data);
+            const data = res.data
+            console.log(data)
             setnotes(res.data)
             setisRatelimited(false)
         } 
